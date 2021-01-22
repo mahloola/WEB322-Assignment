@@ -11,10 +11,15 @@
 ********************************************************************************/  
 
 const express = require("express");
+var path = require("path");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Mahmoud Bakir - 127859197");
+app.get("/", function(req, res){
+  res.sendFile(path.join(__dirname, "/index.html"))
 });
+
+app.get("/about", function(req,res){
+  res.sendFile(path.join(__dirname, "/about.html"))
+})
 
 app.listen(process.env.PORT || 5000)
